@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/SabinaHisamova/js-weather-2023-09/issues"
   },
-  "homepage": "https://github.com/SabinaHisamova/js-weather-2023-09#readme"
+  "homepage": "https://github.com/SabinaHisamova/js-weather-2023-09#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }

@@ -1,0 +1,20 @@
+{
+  "name": "js-weather-2023-09",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SabinaHisamova/js-weather-2023-09.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SabinaHisamova/js-weather-2023-09/issues"
+  },
+  "homepage": "https://github.com/SabinaHisamova/js-weather-2023-09#readme"
+}

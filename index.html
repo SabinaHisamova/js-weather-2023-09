@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>DOM Examples</title>
+    <style>
+      div[id] {
+        width: 49%;
+        float: left;
+      }
+    </style>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+    <div class = 'card'>
+
+      <div class="search">
+        <input type="text" placeholder="enter city name" spellcheck="false"> 
+        <button>search</button>
+      </div>
+
+      <div class="weather">
+        <img src="images/map.png" class="city-map">
+        <h1 class="temp"></h1>
+        <h2 class="city">Ufa</h2>
+      </div>
+      
+      <div id="list"></div>
+
+    </div>
+
+    <div id="container"></div>
+    <!-- Важно! чтобы script был в конце документа -->
+
+    <script src="script.js"></script>
+  </body>
+</html>

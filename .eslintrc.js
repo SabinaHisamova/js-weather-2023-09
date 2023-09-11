@@ -25,9 +25,12 @@ module.exports = {
     "max-len": [
       "error",
       {
+        code: 140,
         ignoreComments: true,
       },
     ],
     "import/prefer-default-export": "off",
+    "no-param-reassign": ["error", { props: false }],
+    "no-shadow": "off",
   },
 };

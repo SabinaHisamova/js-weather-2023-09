@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/SabinaHisamova/js-weather-2023-09#readme",
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.22.15",

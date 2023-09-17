@@ -21,6 +21,7 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["jest"],
+  ignorePatterns: ["main.js"],
   rules: {
     "max-len": [
       "error",

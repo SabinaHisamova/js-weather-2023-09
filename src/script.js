@@ -19,7 +19,7 @@ function addElements(el) {
   divWeather.className = "weather";
 
   const img = document.createElement("img");
-  img.src = "images/map.png";
+  img.src = "./images/map.png";
   img.className = "city-map";
 
   const h1 = document.createElement("h1");

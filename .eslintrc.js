@@ -32,5 +32,11 @@ module.exports = {
     "import/prefer-default-export": "off",
     "no-param-reassign": ["error", { props: false }],
     "no-shadow": "off",
+    "no-plusplus": "off",
+    "no-unused-vars": "off",
+    "consistent-return": "off",
+    "prefer-promise-reject-errors": "off",
+    "no-await-in-loop": "off",
+    "func-names": "off",
   },
 };

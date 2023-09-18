@@ -1,1 +1,7 @@
-import { defaultWeather, writeList, drawWeather, addElements } from "./script";
+import {
+  defaultWeather,
+  writeList,
+  drawWeather,
+  addElements,
+  addCSS,
+} from "./script";

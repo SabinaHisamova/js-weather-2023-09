@@ -194,4 +194,4 @@ if (listEl) {
   };
 }
 
-export { addElements, addCSS, defaultWeather, drawWeather, writeList };
+export { addCSS, addElements, defaultWeather, drawWeather, writeList };

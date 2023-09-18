@@ -49,6 +49,17 @@ function addElements(el) {
 
 addElements(document.querySelector("body"));
 
+// Добавляем стиль разметки
+function addCSS(el) {
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = "style.css";
+
+  el.appendChild(link);
+}
+// <link rel="stylesheet" href="style.css" />
+addCSS(document.getElementsByTagName("head")[0]);
+
 const apiKey = "6c747baf75682efc7b620568f3236f69";
 const apiUrl =
   "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
@@ -183,4 +194,4 @@ if (listEl) {
   };
 }
 
-export { addElements, defaultWeather, drawWeather, writeList };
+export { addElements, addCSS, defaultWeather, drawWeather, writeList };

@@ -83,7 +83,7 @@ async function defaultWeather() {
       dataDef.main.temp,
       0,
     )}°C`;
-    // Выводим карту для выбранного города
+    // Выводим карту для дефолтного города
     cityMap.src =
       `https://static-maps.yandex.ru/v1?spn=0.316457,0.00619&l=map&size=200,200&ll=56.0375,54.775` +
       `&apikey=${yanApiKey}`;

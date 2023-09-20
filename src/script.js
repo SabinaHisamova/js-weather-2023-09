@@ -57,7 +57,7 @@ function addCSS(el) {
 
   el.appendChild(link);
 }
-// <link rel="stylesheet" href="style.css" />
+
 addCSS(document.getElementsByTagName("head")[0]);
 
 const apiKey = "6c747baf75682efc7b620568f3236f69";
@@ -143,8 +143,6 @@ async function writeList(city) {
   // Читаем список при старте
   const items = await readList();
 
-  // console.log(items);
-
   if (city) {
     if (items.length >= 10) {
       // пользователь должен видеть последние 10 городов
@@ -175,9 +173,7 @@ async function writeList(city) {
 }
 
 // Рисуем список истории поиска
-// writeList('Ufa');
 writeList();
-// console.log(writeList());
 
 // Выполняем поиск и отрисовку списка по клику
 window.onload = function () {

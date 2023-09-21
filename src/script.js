@@ -70,13 +70,35 @@ const searchBtn = document.querySelector(".search button");
 const yanApiKey = "8dd53d90-bf9b-4ee4-ac9d-86c1dabd0561";
 const cityMap = document.querySelector(".city-map");
 
+const geoApiKey = "d91fc6ae1d7e4f689781a5d3401fc83f";
+let lat = null;
+let lon = null;
+let cityName;
+
 const listEl = document.querySelector("#list");
+
+// Определяем координаты и город пользователя
+async function defaultCityName() {
+  try {
+    const defaultCityData = await fetch(
+      "https://api.geoapify.com/v1/ipinfo?&apiKey=d91fc6ae1d7e4f689781a5d3401fc83f",
+    );
+    const dataDef = await defaultCityData.json();
+    cityName = dataDef.city.name;
+    lat = dataDef.location.latitude;
+    lon = dataDef.location.longitude;
+  } catch (err) {
+    return null;
+  }
+}
 
 // При открытии страницы пользователь видит погоду (город, температуру и иконку) в своей местности
 async function defaultWeather() {
+  await defaultCityName();
   try {
     const url =
-      "https://api.openweathermap.org/data/2.5/weather?units=metric&q=Ufa&appid=6c747baf75682efc7b620568f3236f69";
+      `https://api.openweathermap.org/data/2.5/weather?units=metric&q=` +
+      `${cityName}&appid=6c747baf75682efc7b620568f3236f69`;
     const responseDef = await fetch(url);
     const dataDef = await responseDef.json(); // читаем ответ в формате JSON
     document.querySelector(".temp").innerHTML = `${Math.round(
@@ -85,8 +107,8 @@ async function defaultWeather() {
     )}°C`;
     // Выводим карту для дефолтного города
     cityMap.src =
-      `https://static-maps.yandex.ru/v1?spn=0.316457,0.00619&l=map&size=200,200&ll=56.0375,54.775` +
-      `&apikey=${yanApiKey}`;
+      `https://static-maps.yandex.ru/v1?spn=0.316457,0.00619&l=map&size=200,200&ll=` +
+      `${lon},${lat}&apikey=${yanApiKey}`;
   } catch (err) {
     return null;
   }
@@ -97,7 +119,7 @@ defaultWeather();
 // localStorage.clear();
 
 // Пользователь может ввести имя города в поле ввода и увидеть погоду в выбранном городе
-async function drawWeather(city) {
+async function drawWeather(city, myCallback) {
   try {
     const response = await fetch(`${apiUrl + city}&appid=${apiKey}`);
     const data = await response.json();
@@ -112,6 +134,8 @@ async function drawWeather(city) {
     cityMap.src =
       `https://static-maps.yandex.ru/v1?spn=0.316457,0.00619&l=map&size=200,200&ll=` +
       `${data.coord.lon},${data.coord.lat}&apikey=${yanApiKey}`;
+
+    myCallback(city);
   } catch (err) {
     return null;
   }
@@ -178,8 +202,8 @@ writeList();
 // Выполняем поиск и отрисовку списка по клику
 window.onload = function () {
   searchBtn.addEventListener("click", () => {
-    drawWeather(searchBox.value);
-    writeList(searchBox.value);
+    drawWeather(searchBox.value, writeList);
+    // writeList(searchBox.value);
   });
 };
 
@@ -191,4 +215,11 @@ if (listEl) {
   };
 }
 
-export { addCSS, addElements, defaultWeather, drawWeather, writeList };
+export {
+  addCSS,
+  addElements,
+  defaultCityName,
+  defaultWeather,
+  drawWeather,
+  writeList,
+};

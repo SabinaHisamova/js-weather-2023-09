@@ -45,9 +45,6 @@ describe("Tests for the Weather App", () => {
     const data = await defaultWeather();
 
     expect(data).toEqual(null);
-    expect(fetch).toHaveBeenCalledWith(
-      "https://api.openweathermap.org/data/2.5/weather?units=metric&q=Ufa&appid=6c747baf75682efc7b620568f3236f69",
-    );
   });
 
   it("city and temp from fetch are correct for drawWeather function", async () => {

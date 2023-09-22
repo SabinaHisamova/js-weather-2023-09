@@ -9,7 +9,7 @@
     "lint:fix": "prettier --write . && eslint . --fix",
     "prepare": "husky install",
     "start": "webpack-dev-server --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production && cp src/style.css dist && cp -r src/images dist"
   },
   "repository": {
     "type": "git",

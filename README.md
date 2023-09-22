@@ -19,6 +19,8 @@
 <li>Сборка проекта выполняется с помощью webpack</li>
 <li>Добавлен стиль разметки</li>
 
-![image](https://github.com/SabinaHisamova/js-weather-2023-09/assets/137795044/bd0cce43-3dda-4413-a4db-037467b29853)
+<a href="https://codecov.io/gh/SabinaHisamova/js-weather-2023-09" > 
+ <img src="https://codecov.io/gh/SabinaHisamova/js-weather-2023-09/graph/badge.svg?token=8TH6Y9ISIQ"/> 
+ </a>
 
 </ul>

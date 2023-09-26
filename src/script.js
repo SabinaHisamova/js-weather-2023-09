@@ -26,7 +26,7 @@ function addElements(el) {
   h1.className = "temp";
 
   const h2 = document.createElement("h2");
-  h2.innerText = "Ufa";
+  // h2.innerText = "Ufa";
   h2.className = "city";
   //
   const divList = document.createElement("div");
@@ -109,6 +109,8 @@ async function defaultWeather() {
     cityMap.src =
       `https://static-maps.yandex.ru/v1?spn=0.316457,0.00619&l=map&size=200,200&ll=` +
       `${lon},${lat}&apikey=${yanApiKey}`;
+    // Выводим город пользователя
+    document.querySelector(".city").innerHTML = cityName;
   } catch (err) {
     return null;
   }

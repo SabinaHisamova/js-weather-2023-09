@@ -168,30 +168,39 @@ async function writeList(city) {
 
   // Читаем список при старте
   const items = await readList();
+  const uniqItems = [];
+  // Возвращаем только список уникатльных городов
+  items.forEach(element => {
+    if (!uniqItems.includes(element)) {
+      uniqItems.push(element);
+    }
+  });
+
+  console.log(uniqItems);
 
   if (city) {
-    if (items.length >= 10) {
+    if (uniqItems.length >= 10) {
       // пользователь должен видеть последние 10 городов
-      items.splice(0, items.length - 9);
-      items.push(city); // push города в массив
-      saveList(items); // сохраняем список
+      uniqItems.splice(0, uniqItems.length - 9);
+      if (uniqItems.indexOf(city)==-1) uniqItems.push(city); // push города в массив, если это не дубликат
+      saveList(uniqItems); // сохраняем список
       try {
-        drawList(listEl, items);
+        drawList(listEl, uniqItems);
       } catch {
         return null;
       } // и отрисовываем список
     } else {
-      items.push(city); // push города в массив
-      saveList(items); // сохраняем список
+      if (uniqItems.indexOf(city)==-1) uniqItems.push(city); // push города в массив, если это не дубликат
+      saveList(uniqItems); // сохраняем список
       try {
-        drawList(listEl, items);
+        drawList(listEl, uniqItems);
       } catch {
         return null;
       } // и отрисовываем список
     }
   } else {
     try {
-      drawList(listEl, items);
+      drawList(listEl, uniqItems);
     } catch {
       return null;
     } // отрисовываем список

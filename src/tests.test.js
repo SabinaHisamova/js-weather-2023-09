@@ -137,7 +137,7 @@ describe("Tests for the Weather App", () => {
       "Busan",
       "Paris",
       "Jeju",
-      "Ufa",
+      "Vladivostok",
       "Berlin",
       "London",
     ];
@@ -145,7 +145,9 @@ describe("Tests for the Weather App", () => {
     // Add 11 cities
     for (let i = 0; i < array.length; i++) {
       await writeList(array[i]);
+      // console.log(array[i]);
     }
+
     const listElmt = document.getElementsByTagName("li");
     expect(listElmt.length).toBe(10);
     expect(listElmt[listElmt.length - 1].innerHTML).toBe("London");
